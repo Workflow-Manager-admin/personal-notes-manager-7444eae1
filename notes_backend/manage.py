@@ -5,7 +5,21 @@ import sys
 
 
 def main():
-    """Run administrative tasks."""
+    """Run administrative tasks.
+
+    This entrypoint is intended for Django development and admin commands.
+    To run the Django server on a specific port such as 3001, you should use:
+
+        python manage.py runserver 0.0.0.0:3001
+
+    If you encounter issues where the server is not reachable on port 3001,
+    ensure that:
+        - There are no syntax errors in settings or code.
+        - All dependencies are installed (see requirements.txt).
+        - The host is set to '0.0.0.0' and port is 3001 on runserver call.
+
+    For Docker or container environments, confirm that port 3001 is mapped.
+    """
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
     try:
         from django.core.management import execute_from_command_line

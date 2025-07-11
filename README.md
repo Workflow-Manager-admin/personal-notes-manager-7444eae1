@@ -37,4 +37,9 @@ To upgrade to PostgreSQL, see `notes_database.md`.
 ### Setup
 - Run migrations: `python manage.py makemigrations && python manage.py migrate`
 - Create superuser: `python manage.py createsuperuser`
-- Run server: `python manage.py runserver`
+- **Run server (development, listen on port 3001):**
+    - `python manage.py runserver 0.0.0.0:3001`
+    - This binds the server to all interfaces on port 3001 instead of default 8000.
+    - Make sure ALLOWED_HOSTS in settings.py allows your host/IP.
+
+> For Docker/docker-compose or scripts: Ensure command is `python manage.py runserver 0.0.0.0:3001` and port 3001 is exposed.
